@@ -1,0 +1,50 @@
+/package.json
+    - 메이븐과 같은 역할이다. 패키지의 스펙이 나왔 있다.
+
+/app.js
+    - 컨트롤러 역할을 한다. 패키지에서 준비된 기능들을 사용하도록 설정한다.
+
+/views
+    - 말그대로 뷰
+
+ /routes
+    - 모델에 속한다. 실질적인 모든 기능을 여기서 처리 DB 연결
+
+**순서도
+01. - /package.json
+02. - /app.js
+03. - /routes
+04. - /views
+
+생각보다 쉽다.
+2017-05-26 오후 4:19
+
+
+================DB SQL===================
+# Host: localhost  (Version 5.5.5-10.1.21-MariaDB)
+# Date: 2017-05-26 17:49:24
+# Generator: MySQL-Front 6.0  (Build 2.6)
+
+
+#
+# Structure for table "board"
+#
+
+DROP TABLE IF EXISTS `board`;
+CREATE TABLE `board` (
+  `idx` int(11) NOT NULL AUTO_INCREMENT,
+  `creator_id` varchar(50) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `content` mediumtext NOT NULL,
+  `regdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modidate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `passwd` varchar(50) NOT NULL,
+  `hit` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idx`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+#
+# Data for table "board"
+#
+
+INSERT INTO `board` VALUES (1,'whiteday910','제목입니다.','내용입니다.','2015-04-12 00:03:30','2015-04-12 00:03:32','1234',0),(2,'devlecture','두번째 글 제목입니다.','내용이죠~','2015-04-12 01:35:59','2015-04-12 01:36:00','1234',0),(3,'3','33','333','2017-05-26 15:14:50','2017-05-26 15:14:50','3333',0),(4,'4','4444','444','2017-05-26 15:14:55','2017-05-26 15:14:55','44',0),(5,'55','5555','5555','2017-05-26 15:15:00','2017-05-26 15:15:00','55555',0),(6,'6','666','6666','2017-05-26 15:15:07','2017-05-26 15:15:07','66666',0),(7,'777','77777','777777','2017-05-26 15:15:14','2017-05-26 15:15:14','77777777',0),(8,'8888','88888','8888888','2017-05-26 15:15:20','2017-05-26 15:15:20','8888',0),(9,'99912','999912','99999912','2017-05-26 15:49:54','2017-05-26 15:15:26','99',0);

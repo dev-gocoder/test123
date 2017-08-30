@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+    <!--랜더링한 데이터를 이런식으로 스크립트 태그로 뿌려준다. -->
+<h1><%= title %></h1>
+
+<a href="/board/write">글쓰기로 이동</a>
+<br>
+<br>
+
+<table border="1">
+    <tr>
+
+        <td>번호</td>
+        <td>작성자</td>
+        <td>제목</td>
+        <td>조회수</td>
+        <td>변경일</td>
+    </tr>
+
+<%
+    //01. 와웅.. 자바스크립트 for문으로 데이터를 뿌려준다.
+     for(var i=0; i<rows.length; i++)
+     {
+        //02. 각 row의 정보를 가져와 변수에 담고
+        var oneItem = rows[i];
+%>
+    <tr>
+        <!--//03. row에 담은 그대로 변수명을 이용해 뿌려준다.-->
+        <td><%=oneItem.idx%></td>
+        <td><%=oneItem.creator_id%></td>
+        <td><a href="/board/read/<%=oneItem.idx%>"><%=oneItem.title%></a></td>
+        <td><%=oneItem.hit%></td>
+        <td><%=oneItem.modidate%></td>
+    </tr>
+
+<%
+     }
+%>
+</table>
+
+</body>
+</html>
